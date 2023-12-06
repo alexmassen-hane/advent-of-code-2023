@@ -1,6 +1,5 @@
 import re
 
-# with open("test_part2.txt", "r") as f_in:
 with open("calibration_input.txt", "r") as f_in:
     calibrations = f_in.readlines()
 
@@ -18,6 +17,7 @@ word_lookup = {
 
 sum = 0
 for cal in calibrations:
+    # This long regex uses the 'look ahead' ?= and is why we have to define all of the digits as well.
     items = re.findall(r"(?=(0|1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine))", cal)
 
     first = word_lookup.get(items[0], items[0])
