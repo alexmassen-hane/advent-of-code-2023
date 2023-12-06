@@ -18,9 +18,9 @@ for line in in_data[1:]:
 
 def find_from_map(input, range_list):
     result = None
-    for num in range_list:
-        if input in range(num[1], num[1] + num[2]):
-            result = abs(input - num[1]) + num[0]
+    for dst, src, rng in range_list:
+        if src <= input <= src + rng - 1:
+            result = abs(input - src) + dst
             break
     # Not in any of the ranges, same as input
     if result is None:
